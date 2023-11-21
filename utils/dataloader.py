@@ -62,5 +62,4 @@ def samplePlot():
 
     plt.show()
 
-
-samplePlot()
+# samplePlot()
