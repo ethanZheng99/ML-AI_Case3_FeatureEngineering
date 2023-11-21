@@ -9,13 +9,13 @@ def dateLoad():
     data_csv_path = os.path.join(dir_path, '..', 'data', 'data.csv')
     labels_csv_path = os.path.join(dir_path, '..', 'data', 'labels.csv')
     feature_names_csv_path = os.path.join(dir_path, '..', 'data', 'feature_names.csv')
-    x = np.loadtxt(data_csv_path, delimiter=',')
-    y = np.loadtxt(labels_csv_path, delimiter=',')
+    data = np.loadtxt(data_csv_path, delimiter=',')
+    labels = np.loadtxt(labels_csv_path, delimiter=',')
 
     with open(feature_names_csv_path) as f:
         csvreader = csv.reader(f, delimiter=',')
         feature_names = [row for row in csvreader][0]
-    return x, y, feature_names
+    return data, labels, feature_names
 
 
 def samplePlot():

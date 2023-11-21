@@ -41,6 +41,24 @@ def logToCSV(file: str, filename: str, data: tuple or list):
             writer.writerow(row)
         print("已成功写入: 文件：" + filename)
 
+def dataToCSV(file: str, filename: str, data: tuple or list):
+    if file is None:
+        filepath = os.path.join(dir_path, '..', 'data')
+    else:
+        filepath = os.path.join(dir_path, '..', 'data', file)
+
+    if system == 'nt':
+        url = filepath + "//" + filename
+    else:
+        url = filepath + "/" + filename
+    # 打开文件，设置为写入模式
+    with open(url, 'w', newline='') as file:
+        writer = csv.writer(file)
+        # 写入所有行
+        for row in data:
+            writer.writerow(row)
+        print("已成功写入: 文件：" + filename)
+
 
 """
                 测试用例
