@@ -29,7 +29,7 @@ def samplePlot():
     # e = np.random.randint(0, num_electrodes)
     # i0, i1 = f0*num_electrodes + e, f1*num_electrodes + e
 
-    # b) same feature, different electrode (uncomment lines below)
+    # c) same feature, different electrode (uncomment lines below)
     # f = np.random.randint(0, num_features)
     # e0, e1 = np.random.randint(0, num_electrodes, size=2)
     # i0, i1 = f*num_electrodes + e0, f*num_electrodes + e1
