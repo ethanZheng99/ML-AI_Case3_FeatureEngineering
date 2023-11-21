@@ -1,12 +1,18 @@
 import csv
 import numpy as np
 from matplotlib import pylab as plt
+import os
 
 
 def dateLoad():
-    x = np.loadtxt('../data/data.csv', delimiter=',')
-    y = np.loadtxt('../data/labels.csv', delimiter=',')
-    with open('../data/feature_names.csv') as f:
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    data_csv_path = os.path.join(dir_path, '..', 'data', 'data.csv')
+    labels_csv_path = os.path.join(dir_path, '..', 'data', 'labels.csv')
+    feature_names_csv_path = os.path.join(dir_path, '..', 'data', 'feature_names.csv')
+    x = np.loadtxt(data_csv_path, delimiter=',')
+    y = np.loadtxt(labels_csv_path, delimiter=',')
+
+    with open(feature_names_csv_path) as f:
         csvreader = csv.reader(f, delimiter=',')
         feature_names = [row for row in csvreader][0]
     return x, y, feature_names

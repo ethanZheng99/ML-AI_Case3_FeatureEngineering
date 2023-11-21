@@ -1,26 +1,45 @@
 import csv
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+system = os.name
 
 
-def logToTXT(filename: str, content: list):
-    filepath = '../log'
-    url = filepath + "/" + filename
+def logToTXT(file: str, filename: str, content: list):
+    if file is None:
+        filepath = os.path.join(dir_path, '..', 'log')
+    else:
+        filepath = os.path.join(dir_path, '..', 'log', file)
+
+    if system == 'nt':
+        url = filepath + "//" + filename
+    else:
+        url = filepath + "/" + filename
+
     with open(url, 'w') as file:
         for line in content:
             file.write(str(line) + "\n")
-        print("已成功写入 文件：" + filename)
+        print("已成功写入: 文件：" + filename)
         file.close()
 
 
-def logToCSV(filename: str, data: tuple or list):
-    filepath = '../log'
-    url = filepath + "/" + filename
+def logToCSV(file: str, filename: str, data: tuple or list):
+    if file is None:
+        filepath = os.path.join(dir_path, '..', 'log')
+    else:
+        filepath = os.path.join(dir_path, '..', 'log', file)
+
+    if system == 'nt':
+        url = filepath + "//" + filename
+    else:
+        url = filepath + "/" + filename
     # 打开文件，设置为写入模式
     with open(url, 'w', newline='') as file:
         writer = csv.writer(file)
         # 写入所有行
         for row in data:
             writer.writerow(row)
-        print("已成功写入 文件：" + filename)
+        print("已成功写入: 文件：" + filename)
 
 
 """
@@ -31,6 +50,7 @@ def logToCSV(filename: str, data: tuple or list):
                     ["Bob", 25, "Los Angeles"],
                     ["Charlie", 35, "Chicago"]
                 ]
-                logToCSV("test.csv", data1)
-                logToTXT("test.txt", data1)
+                logToCSV("Person_log","test.csv", data1)
+                logToTXT("Person_log","test.txt", data1)
 """
+
