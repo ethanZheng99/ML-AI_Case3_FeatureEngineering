@@ -62,4 +62,22 @@ def samplePlot():
 
     plt.show()
 
+
+def check_name_List():
+    x, y, feature_names = dateLoad()
+    count = 0
+    res = "alpha_ec_0" + "\t"
+    resList = []
+    for i in range(1, len(feature_names)):
+        res += feature_names[i] + "\t"
+        if (i + 1) % 48 == 0 and i != 0:
+            resList.append(res)
+            res = ""
+            print("from " + str(count) + "->" + str(i))
+            count = i + 1
+    for i in resList:
+        print(i)
+
+
+# check_name_List()
 # samplePlot()
