@@ -14,6 +14,7 @@ def alpha_ac(colum: int):
     X = range(48)
     plt.plot(X,Y,label="Original")
     key = np.mean(Y)
+    print(key)
     Y1 = np.full(48,key)
     plt.plot(X,Y1,label="Mean")
     plt.show()
@@ -114,7 +115,7 @@ def alpha_ac_Random_Iter(maxNumber: int):
 
 
 alpha_ac_Random_Iter(8)
-
+#alpha_ac(12)
 """
 randomList = []
 for i in range(3):
