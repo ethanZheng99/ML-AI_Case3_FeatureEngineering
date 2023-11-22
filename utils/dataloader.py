@@ -18,6 +18,20 @@ def dateLoad():
     return data, labels, feature_names
 
 
+def normal_dataLoad(filepath: str, filename: str):
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    data_csv_path = os.path.join(dir_path, '..', 'data', filepath, filename)
+    labels_csv_path = os.path.join(dir_path, '..', 'data', 'labels.csv')
+    feature_names_csv_path = os.path.join(dir_path, '..', 'data', 'feature_names.csv')
+
+    data = np.loadtxt(data_csv_path, delimiter=',')
+    labels = np.loadtxt(labels_csv_path, delimiter=',')
+
+    with open(feature_names_csv_path) as f:
+        csvreader = csv.reader(f, delimiter=',')
+        feature_names = [row for row in csvreader][0]
+    return data, labels, feature_names
+
 def samplePlot():
     X, y, feature_names = dateLoad()
     # plotting data in 2D with axes sampled
@@ -87,3 +101,4 @@ def check_name_List():
 
 # check_name_List()
 # samplePlot()
+# x,y,z = normal_dataLoad("mean","mean_data.csv")

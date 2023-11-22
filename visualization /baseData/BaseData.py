@@ -115,7 +115,7 @@ def alpha_ac_Random_Iter(maxNumber: int):
 
 
 alpha_ac_Random_Iter(8)
-#alpha_ac(12)
+#alpha_ac(0)
 """
 randomList = []
 for i in range(3):
